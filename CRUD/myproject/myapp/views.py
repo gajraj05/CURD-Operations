@@ -30,10 +30,10 @@ def details(request):
         notes.insert_one(note)
         return redirect('/details/')
     
-    # Convert cursor to list and add 'id' field
+    # Create a list and add 'id' field
     all_notes = []
     for note in notes.find():
-        note['id'] = str(note['_id'])  # add a safe field for template
+        note['id'] = str(note['_id']) 
         all_notes.append(note)
 
     return render(request, 'details.html', context={
